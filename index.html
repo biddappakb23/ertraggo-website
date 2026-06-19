@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ertrag Go — Business Development Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#1A1A1A;
+  --amber:#C4622D;
+  --amber-lt:#D4753E;
+  --cream:#F5F0E8;
+  --cream-dk:#EDE7DB;
+  --white:#FFFFFF;
+  --mid:#6B6560;
+  --border:#D8D0C4;
+  --border-dk:#2E2E2E;
+  --card:#F0EAE0;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 4rem;
+  background:rgba(245,240,232,0.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.logo-mark{
+  display:flex;align-items:baseline;gap:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;color:var(--black);
+  letter-spacing:-0.01em;text-decoration:none;
+}
+.logo-mark span{color:var(--amber)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  color:var(--mid);text-decoration:none;
+  font-size:0.82rem;font-weight:500;letter-spacing:0.04em;
+  text-transform:uppercase;transition:color .2s;
+}
+.nav-links a:hover{color:var(--black)}
+.nav-cta{
+  background:var(--black);color:var(--white);
+  padding:0.6rem 1.5rem;
+  text-decoration:none;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:background .2s;border:1px solid var(--black);
+}
+.nav-cta:hover{background:var(--amber);border-color:var(--amber)}
+
+/* ── TICKER ── */
+.ticker{
+  background:var(--black);color:var(--white);
+  padding:0.65rem 0;margin-top:72px;overflow:hidden;
+  border-bottom:1px solid var(--border-dk);
+}
+.ticker-inner{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker 28s linear infinite;
+}
+.ticker-item{
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0 2.5rem;color:rgba(255,255,255,0.6);
+  border-right:1px solid rgba(255,255,255,0.15);
+}
+.ticker-item.accent{color:var(--amber)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── HERO ── */
+.hero{
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 4rem;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--mid);margin-bottom:2rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.hero-eyebrow::before{content:'';width:2rem;height:1px;background:var(--amber);display:inline-block}
+.hero-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:300;line-height:1.02;
+  color:var(--black);letter-spacing:-0.02em;
+  max-width:900px;margin-bottom:0;
+}
+.hero-headline em{
+  font-style:italic;color:var(--amber);
+}
+.hero-headline strong{font-weight:600}
+.hero-split{
+  display:grid;grid-template-columns:1fr 380px;
+  gap:4rem;align-items:flex-end;margin-top:4rem;
+}
+.hero-sub{
+  font-size:1.05rem;color:var(--mid);
+  line-height:1.8;font-weight:300;max-width:520px;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.btn-primary{
+  background:var(--black);color:var(--white);
+  padding:0.9rem 2.2rem;text-decoration:none;
+  font-size:0.82rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;transition:all .2s;
+  border:1px solid var(--black);
+}
+.btn-primary:hover{background:var(--amber);border-color:var(--amber)}
+.btn-ghost{
+  color:var(--black);padding:0.9rem 2.2rem;
+  text-decoration:none;font-size:0.82rem;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;
+  border:1px solid var(--border);transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--black)}
+.hero-card{
+  background:var(--black);padding:2.5rem;
+  border:1px solid var(--border-dk);
+}
+.hero-card-label{
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);
+  margin-bottom:1.5rem;
+}
+.hero-stat-item{border-top:1px solid rgba(255,255,255,0.1);padding:1rem 0}
+.hero-stat-item:first-of-type{border-top:none;padding-top:0}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;font-weight:300;color:var(--amber);
+  line-height:1;display:block;margin-bottom:0.2rem;
+}
+.stat-l{font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300}
+
+/* ── MARQUEE DIVIDER ── */
+.marquee-div{
+  background:var(--amber);padding:1rem 0;overflow:hidden;
+}
+.marquee-inner{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker 20s linear infinite;
+}
+.marquee-item{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.85);
+  padding:0 2rem;
+}
+.marquee-sep{color:rgba(255,255,255,0.4);padding:0 0.5rem}
+
+/* ── SECTION BASE ── */
+section{padding:6rem 4rem;border-bottom:1px solid var(--border)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--mid);
+  margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;
+}
+.section-label::before{content:'';width:1.5rem;height:1px;background:var(--amber);display:inline-block}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  font-weight:400;color:var(--black);
+  line-height:1.15;letter-spacing:-0.01em;
+}
+h2 em{font-style:italic;color:var(--amber)}
+.section-sub{
+  font-size:1rem;color:var(--mid);line-height:1.8;
+  font-weight:300;max-width:540px;margin-top:0.8rem;
+}
+
+/* ── PROBLEM ── */
+.problem-bg{background:var(--black)}
+.problem-bg h2{color:var(--white)}
+.problem-bg .section-label{color:rgba(255,255,255,0.35)}
+.problem-bg .section-sub{color:rgba(255,255,255,0.45)}
+.problem-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:1px;background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  margin-top:3.5rem;
+}
+.problem-card{
+  background:var(--black);padding:2.5rem;
+  transition:background .2s;
+}
+.problem-card:hover{background:#222}
+.problem-x{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;color:rgba(196,98,45,0.4);
+  margin-bottom:1.2rem;display:block;
+}
+.problem-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;color:var(--white);
+  margin-bottom:0.8rem;
+}
+.problem-card p{font-size:0.875rem;color:rgba(255,255,255,0.4);line-height:1.75}
+
+/* ── SERVICES ── */
+.services-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:3.5rem;
+}
+.service-card{
+  background:var(--cream);padding:3rem;
+  transition:background .2s;cursor:default;
+}
+.service-card:hover{background:var(--card)}
+.svc-num{
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;color:var(--amber);
+  letter-spacing:0.1em;margin-bottom:1.5rem;display:block;
+}
+.service-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:600;color:var(--black);
+  margin-bottom:0.8rem;
+}
+.service-card p{font-size:0.9rem;color:var(--mid);line-height:1.75;margin-bottom:1.5rem}
+.svc-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.svc-bullets li{
+  font-size:0.84rem;color:var(--mid);
+  display:flex;gap:0.6rem;align-items:flex-start;
+}
+.svc-bullets li::before{content:'—';color:var(--amber);flex-shrink:0}
+
+/* ── PRICING ── */
+.pricing-bg{background:var(--cream-dk)}
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;margin-top:3.5rem;
+}
+.pricing-card{
+  border:1px solid var(--border);padding:3rem;
+  background:var(--cream);position:relative;
+}
+.pricing-card.dark{background:var(--black);border-color:var(--black)}
+.pricing-label{
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--mid);
+  margin-bottom:1.5rem;display:block;
+}
+.pricing-card.dark .pricing-label{color:rgba(255,255,255,0.35)}
+.pricing-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:600;color:var(--black);
+  margin-bottom:0.5rem;
+}
+.pricing-card.dark h3{color:var(--white)}
+.pricing-desc{font-size:0.875rem;color:var(--mid);line-height:1.7;margin-bottom:2rem}
+.pricing-card.dark .pricing-desc{color:rgba(255,255,255,0.4)}
+.pricing-amt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;font-weight:300;color:var(--amber);
+  margin-bottom:0.25rem;line-height:1;
+}
+.pricing-unit{font-size:0.8rem;color:var(--mid);margin-bottom:2rem}
+.pricing-card.dark .pricing-unit{color:rgba(255,255,255,0.3)}
+.pricing-hr{height:1px;background:var(--border);margin:2rem 0}
+.pricing-card.dark .pricing-hr{background:rgba(255,255,255,0.08)}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.pricing-features li{
+  font-size:0.875rem;display:flex;align-items:flex-start;gap:0.6rem;
+  color:var(--black);
+}
+.pricing-card.dark .pricing-features li{color:rgba(255,255,255,0.55)}
+.pricing-features li::before{content:'✓';color:var(--amber);font-weight:700;flex-shrink:0}
+.conversion-pill{
+  display:inline-block;margin-top:1.5rem;
+  padding:0.5rem 1rem;background:rgba(196,98,45,0.1);
+  border:1px solid rgba(196,98,45,0.3);
+  font-size:0.8rem;color:var(--amber);font-style:italic;
+}
+
+/* ── PROCESS ── */
+.process-list{margin-top:3.5rem}
+.process-item{
+  display:grid;grid-template-columns:80px 1fr;
+  gap:0;border-top:1px solid var(--border);
+  padding:2rem 0;align-items:start;
+  transition:background .2s;
+}
+.process-item:last-child{border-bottom:1px solid var(--border)}
+.process-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-weight:300;color:var(--border);
+  line-height:1;padding-top:0.1rem;
+}
+.process-content h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:600;color:var(--black);
+  margin-bottom:0.4rem;
+}
+.process-content p{font-size:0.875rem;color:var(--mid);line-height:1.75}
+.process-meta{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:0.4rem;display:block;
+}
+
+/* ── WHY ── */
+.why-bg{background:var(--black)}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;margin-top:3.5rem;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.why-card{
+  padding:2.5rem;border-right:1px solid rgba(255,255,255,0.08);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.why-card:nth-child(3n){border-right:none}
+.why-card:nth-child(n+4){border-bottom:none}
+.why-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;font-weight:300;color:rgba(255,255,255,0.06);
+  line-height:1;margin-bottom:1.2rem;display:block;
+}
+.why-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:600;color:var(--white);
+  margin-bottom:0.6rem;
+}
+.why-card p{font-size:0.84rem;color:rgba(255,255,255,0.38);line-height:1.75}
+
+/* ── VERTICALS ── */
+.verticals-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2rem;margin-top:3.5rem;
+}
+.vertical-card{
+  border:1px solid var(--border);padding:2.5rem;
+  background:var(--cream);position:relative;overflow:hidden;
+}
+.v-tag{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:1rem;display:block;
+}
+.vertical-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;color:var(--black);
+  margin-bottom:0.6rem;
+}
+.vertical-card p{font-size:0.875rem;color:var(--mid);line-height:1.75;margin-bottom:1.2rem}
+.v-industries{display:flex;flex-wrap:wrap;gap:0.5rem}
+.v-pill{
+  font-size:0.75rem;color:var(--mid);
+  background:var(--card);padding:0.25rem 0.7rem;
+  border:1px solid var(--border);
+}
+.v-bg-num{
+  position:absolute;bottom:-1rem;right:1rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:8rem;font-weight:700;color:rgba(0,0,0,0.04);
+  line-height:1;pointer-events:none;user-select:none;
+}
+
+/* ── STATS ── */
+.stats-bg{background:var(--amber)}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-card{
+  padding:3rem 2.5rem;border-right:1px solid rgba(255,255,255,0.2);
+  text-align:center;
+}
+.stat-card:last-child{border-right:none}
+.big-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.5rem;font-weight:300;color:var(--white);
+  display:block;margin-bottom:0.3rem;line-height:1;
+}
+.stat-label-w{font-size:0.85rem;color:rgba(255,255,255,0.7);font-weight:300}
+.stat-sub-w{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem}
+
+/* ── OUTREACH ── */
+.outreach-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-top:3.5rem;
+}
+.outreach-card{
+  background:var(--cream);padding:2.5rem;
+}
+.o-rank{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;font-weight:300;color:var(--amber);
+  line-height:1;margin-bottom:1rem;display:block;
+}
+.outreach-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;color:var(--black);
+  margin-bottom:0.5rem;
+}
+.outreach-card p{font-size:0.84rem;color:var(--mid);line-height:1.7;margin-bottom:1.2rem}
+.o-tag{
+  display:inline-block;
+  font-family:'DM Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.25rem 0.7rem;border:1px solid var(--border);
+  color:var(--mid);margin-top:auto;
+}
+
+/* ── TESTIMONIALS ── */
+.testi-bg{background:var(--cream-dk)}
+.testi-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;margin-top:3.5rem;
+}
+.testi-card{
+  background:var(--cream);border:1px solid var(--border);
+  padding:2.5rem;position:relative;
+}
+.quote-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;color:var(--amber);opacity:0.15;
+  position:absolute;top:1rem;left:1.5rem;
+  line-height:1;pointer-events:none;
+}
+.testi-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:300;font-style:italic;
+  color:var(--black);line-height:1.7;
+  padding-top:1.5rem;
+}
+.testi-author{margin-top:2rem;display:flex;align-items:center;gap:0.8rem}
+.author-init{
+  width:2.2rem;height:2.2rem;
+  background:var(--black);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:500;
+}
+.author-name{font-size:0.85rem;font-weight:600;color:var(--black)}
+.author-co{font-size:0.78rem;color:var(--mid)}
+
+/* ── FAQ ── */
+.faq-list{margin-top:3.5rem;max-width:760px}
+details.faq{border-top:1px solid var(--border)}
+details.faq:last-of-type{border-bottom:1px solid var(--border)}
+summary.faq-q{
+  padding:1.4rem 0;font-size:1rem;font-weight:500;
+  color:var(--black);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  list-style:none;gap:1rem;
+}
+summary.faq-q::-webkit-details-marker{display:none}
+summary.faq-q::after{
+  content:'+';font-size:1.2rem;color:var(--amber);flex-shrink:0;
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+}
+details[open] summary.faq-q::after{content:'−'}
+.faq-a{font-size:0.875rem;color:var(--mid);line-height:1.8;padding-bottom:1.5rem}
+
+/* ── CTA ── */
+.cta-section{
+  background:var(--black);padding:7rem 4rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'ERTRAG';
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(8rem,18vw,20rem);font-weight:700;
+  color:rgba(255,255,255,0.03);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;pointer-events:none;letter-spacing:-0.02em;
+}
+.cta-section h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:300;color:var(--white);
+  line-height:1.2;position:relative;
+}
+.cta-section h2 em{color:var(--amber);font-style:italic}
+.cta-sub{
+  font-size:1rem;color:rgba(255,255,255,0.4);
+  margin:1.2rem auto 0;max-width:500px;
+  font-weight:300;line-height:1.75;position:relative;
+}
+.cta-actions{
+  display:flex;justify-content:center;gap:1rem;
+  margin-top:3rem;flex-wrap:wrap;position:relative;
+}
+.btn-amber{
+  background:var(--amber);color:var(--white);
+  padding:1rem 2.5rem;text-decoration:none;
+  font-size:0.85rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;transition:background .2s;
+  border:1px solid var(--amber);
+}
+.btn-amber:hover{background:var(--amber-lt);border-color:var(--amber-lt)}
+.btn-ghost-w{
+  color:rgba(255,255,255,0.6);padding:1rem 2.5rem;
+  text-decoration:none;font-size:0.85rem;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.15);transition:all .2s;
+}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,0.4);color:var(--white)}
+
+/* ── CONTACT ── */
+.contact-section{padding:6rem 4rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;max-width:1100px;margin:0 auto}
+.contact-info h2{margin-bottom:1rem}
+.contact-info p{font-size:0.9rem;color:var(--mid);line-height:1.8;margin-bottom:2rem}
+.contact-detail{
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:0.875rem;color:var(--black);
+  margin-bottom:0.5rem;font-weight:500;
+  text-decoration:none;
+}
+.contact-detail span{color:var(--amber)}
+.form-group{margin-bottom:1.2rem}
+.form-group label{
+  display:block;font-size:0.75rem;font-weight:600;
+  color:var(--black);margin-bottom:0.4rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;padding:0.75rem 1rem;
+  border:1px solid var(--border);background:var(--cream);
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;
+  color:var(--black);outline:none;
+  transition:border-color .2s;border-radius:0;
+  appearance:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--amber)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-submit{
+  width:100%;padding:1rem;
+  background:var(--black);color:var(--white);
+  border:1px solid var(--black);
+  font-family:'DM Sans',sans-serif;
+  font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.form-submit:hover{background:var(--amber);border-color:var(--amber)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--black);
+  border-top:1px solid var(--border-dk);
+  padding:4rem 4rem 2rem;
+}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto}
+.footer-brand .logo-mark{color:var(--white);font-size:1.4rem}
+.footer-brand p{font-size:0.84rem;color:rgba(255,255,255,0.35);line-height:1.75;margin-top:1rem;max-width:260px}
+.footer-col h4{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-bottom:1.2rem;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.footer-col a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.84rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{
+  max-width:1100px;margin:3rem auto 0;
+  padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.25)}
+.footer-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem;font-style:italic;color:var(--amber);
+  opacity:0.7;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  section,.hero,.cta-section,.contact-section,footer{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-split,.services-grid,.pricing-grid,.outreach-grid,.testi-grid,.verticals-grid,.contact-grid{grid-template-columns:1fr}
+  .why-grid,.problem-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-headline{font-size:clamp(2.5rem,10vw,4rem)}
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-mark" href="#">Ertrag<span>Go</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#verticals">Verticals</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" aria-hidden="true">
+    <span class="ticker-item accent">Ertrag Go</span>
+    <span class="ticker-item">Business Development</span>
+    <span class="ticker-item">Manufacturing</span>
+    <span class="ticker-item">B2B SaaS</span>
+    <span class="ticker-item">Pipeline Generation</span>
+    <span class="ticker-item">India + Global</span>
+    <span class="ticker-item accent">Quality over Quantity</span>
+    <span class="ticker-item">Qualified Meetings</span>
+    <span class="ticker-item">Intent-Verified Leads</span>
+    <span class="ticker-item">Revenue Partners</span>
+    <span class="ticker-item accent">Ertrag Go</span>
+    <span class="ticker-item">Business Development</span>
+    <span class="ticker-item">Manufacturing</span>
+    <span class="ticker-item">B2B SaaS</span>
+    <span class="ticker-item">Pipeline Generation</span>
+    <span class="ticker-item">India + Global</span>
+    <span class="ticker-item accent">Quality over Quantity</span>
+    <span class="ticker-item">Qualified Meetings</span>
+    <span class="ticker-item">Intent-Verified Leads</span>
+    <span class="ticker-item">Revenue Partners</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">Business Development Partner · Manufacturing & SaaS · India + Global</div>
+  <h1 class="hero-headline">
+    Your next best<br>
+    customer exists.<br>
+    <em>We find them.</em>
+  </h1>
+  <div class="hero-split">
+    <div>
+      <p class="hero-sub">Ertrag Go is a business development partner for manufacturers and B2B SaaS companies. We identify, qualify, and connect you with buyers who are ready to talk — delivering dossiers, not databases. Pipeline, not spreadsheets.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start the Conversation</a>
+        <a href="#process" class="btn-ghost">See Our Process</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">What we deliver</div>
+      <div class="hero-stat-item">
+        <span class="stat-n">30</span>
+        <span class="stat-l">Days to first qualified meeting</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="stat-n">75%</span>
+        <span class="stat-l">Leads are sales-ready opportunities</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="stat-n">2×</span>
+        <span class="stat-l">Geographies — India + Global</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="stat-n">0</span>
+        <span class="stat-l">Upfront risk on Pay-Per-Meeting track</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-div" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="marquee-item">Pipeline, Not Lists<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Revenue, Not Reports<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Partners, Not Vendors<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Intent, Not Volume<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Qualified, Not Scraped<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Pipeline, Not Lists<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Revenue, Not Reports<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Partners, Not Vendors<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Intent, Not Volume<span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Qualified, Not Scraped<span class="marquee-sep">·</span></span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-bg">
+  <div class="section-inner reveal">
+    <div class="section-label">The Problem</div>
+    <h2>Most BD agencies<br>sell you a list.<br><em>We sell you a conversation.</em></h2>
+    <div class="problem-grid" style="margin-top:3.5rem">
+      <div class="problem-card">
+        <span class="problem-x">✗</span>
+        <h3>500 contacts, zero context</h3>
+        <p>Agencies dump scraped spreadsheets — no intent signal, no trigger event, no reason that person should hear from you today. Your team wastes days chasing ghosts.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-x">✗</span>
+        <h3>Sales reps qualify, not close</h3>
+        <p>Your closers spend 70% of their time disqualifying cold leads instead of closing warm ones. That's your best people doing your worst work.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-x">✗</span>
+        <h3>Agencies have no skin in the game</h3>
+        <p>They charge a flat retainer regardless of results. Bad leads, same invoice. There's no commercial pressure to perform. We built our model to fix that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner reveal">
+    <div class="section-label">What We Do</div>
+    <h2>Two focused services.<br><em>One outcome — your revenue.</em></h2>
+    <p class="section-sub">We don't dabble. We specialise in two things and do them exceptionally well.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="svc-num">01 — Sales Development</span>
+        <h3>Qualified meetings with your ideal buyers</h3>
+        <p>We handle all outbound prospecting — identifying, researching, and engaging decision-makers at companies that match your ICP. Your team only speaks with people who are ready to talk business.</p>
+        <ul class="svc-bullets">
+          <li>ICP definition & buyer persona mapping</li>
+          <li>Intent signal research & trigger identification</li>
+          <li>Multi-channel outreach: cold call, email, LinkedIn</li>
+          <li>Full lead dossier with personalised first-touch</li>
+          <li>Meeting booked and handed off to your closer</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="svc-num">02 — Business Development</span>
+        <h3>Full-cycle BD from first contact to PO</h3>
+        <p>For companies who want us deeper in the sales cycle. We don't just book meetings — we manage the relationship from first outreach through qualification, follow-up, and purchase order stage.</p>
+        <ul class="svc-bullets">
+          <li>Full account research & market mapping</li>
+          <li>Decision-maker relationship building</li>
+          <li>Qualification, objection handling & follow-up</li>
+          <li>Pipeline reporting & CRM management</li>
+          <li>Conversion % aligned — we win when you win</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section id="verticals" style="background:var(--cream-dk)">
+  <div class="section-inner reveal">
+    <div class="section-label">Who We Serve</div>
+    <h2>Built for two verticals.<br><em>Expert in both.</em></h2>
+    <p class="section-sub">We go deep, not wide. Two industries. Two playbooks. Zero compromise on quality.</p>
+    <div class="verticals-grid">
+      <div class="vertical-card">
+        <span class="v-tag">Primary Vertical</span>
+        <h3>Mechanical Manufacturing</h3>
+        <p>Our founders come from industrial B2B sales. We know the difference between a plant manager and a procurement head — and who actually signs the PO. We target companies showing live buying signals: new capex, plant expansion, equipment need, or supplier switch.</p>
+        <div class="v-industries">
+          <span class="v-pill">CNC Machining</span>
+          <span class="v-pill">Precision Engineering</span>
+          <span class="v-pill">Contract Manufacturing</span>
+          <span class="v-pill">Metal Fabrication</span>
+          <span class="v-pill">Forging & Casting</span>
+          <span class="v-pill">Industrial Equipment</span>
+        </div>
+        <span class="v-bg-num">01</span>
+      </div>
+      <div class="vertical-card">
+        <span class="v-tag">Secondary Vertical</span>
+        <h3>B2B SaaS</h3>
+        <p>SaaS founders live on LinkedIn. We know how to reach them. We identify growing SaaS companies that need a stronger outbound pipeline and connect them with qualified enterprise buyers — at the exact moment they're ready to spend.</p>
+        <div class="v-industries">
+          <span class="v-pill">Industrial SaaS</span>
+          <span class="v-pill">Enterprise Software</span>
+          <span class="v-pill">ERP / MES / QMS</span>
+          <span class="v-pill">B2B Platforms</span>
+          <span class="v-pill">SaaS for Manufacturing</span>
+        </div>
+        <span class="v-bg-num">02</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-bg" id="pricing">
+  <div class="section-inner reveal">
+    <div class="section-label">Pricing</div>
+    <h2>Two tracks.<br><em>Zero risk of misalignment.</em></h2>
+    <p class="section-sub">Choose the model that fits your appetite. Both include our conversion percentage — because a BD partner should have skin in the game.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card dark">
+        <span class="pricing-label">Track A — Most Popular</span>
+        <h3>Monthly Subscription</h3>
+        <p class="pricing-desc">Consistent pipeline, month after month. Best for companies who want a steady flow of qualified opportunities without the overhead of a full sales team.</p>
+        <div class="pricing-amt">₹40K–₹80K</div>
+        <div class="pricing-unit">per month · 15–25 qualified leads delivered</div>
+        <div class="pricing-hr"></div>
+        <ul class="pricing-features">
+          <li>Verified decision-maker contacts</li>
+          <li>Full research dossier per lead</li>
+          <li>Trigger event identified & validated</li>
+          <li>Personalised first-touch message</li>
+          <li>Monthly pipeline reporting</li>
+          <li>Dedicated BD manager</li>
+        </ul>
+        <div class="conversion-pill">+ 3–8% of deal value on every closed conversion</div>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-label">Track B — Zero Risk</span>
+        <h3>Pay Per Meeting</h3>
+        <p class="pricing-desc">No upfront commitment. Pay only when a qualified meeting is held. The safest way to test our quality before committing to a retainer.</p>
+        <div class="pricing-amt">₹3K–₹8K</div>
+        <div class="pricing-unit">per qualified meeting held</div>
+        <div class="pricing-hr"></div>
+        <ul class="pricing-features">
+          <li>Decision-maker confirmed on the call</li>
+          <li>Budget authority verified pre-meeting</li>
+          <li>Strict ICP qualification criteria</li>
+          <li>Full pre-meeting briefing document</li>
+          <li>No charge if meeting doesn't qualify</li>
+          <li>Upgrade to Track A anytime</li>
+        </ul>
+        <div class="conversion-pill">+ 5–12% of deal value on every closed conversion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner reveal">
+    <div class="section-label">How We Work</div>
+    <h2>A 7-step delivery engine.<br><em>No shortcuts.</em></h2>
+    <p class="section-sub">Every lead goes through a rigorous research and validation process before it reaches your team.</p>
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-n">01</div>
+        <div class="process-content">
+          <span class="process-meta">Week 1 · Nikhil leads</span>
+          <h3>ICP Workshop</h3>
+          <p>Deep-dive session to define your ideal customer profile, trigger events, deal size, and target geographies. No research begins until this is signed off.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">02</div>
+        <div class="process-content">
+          <span class="process-meta">Daily · Shreejith leads</span>
+          <h3>Intent Signal Scan</h3>
+          <p>We use Apollo, LinkedIn Sales Navigator, and Clay to find companies showing real buying signals right now — capex announcements, hiring surges, plant expansions.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">03</div>
+        <div class="process-content">
+          <span class="process-meta">Per company · Research team</span>
+          <h3>Decision-Maker Mapping</h3>
+          <p>Identify the real buyer — not just a contact. Verify email, map the org chart, confirm budget authority. Two-source minimum on every contact.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">04</div>
+        <div class="process-content">
+          <span class="process-meta">Per lead · QA reviewed</span>
+          <h3>Trigger Validation</h3>
+          <p>Confirm the trigger is live and recent — within 90 days. Every lead must have a confirmed reason to need your solution today, not someday.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">05</div>
+        <div class="process-content">
+          <span class="process-meta">Per lead · 30–45 min</span>
+          <h3>Dossier Build</h3>
+          <p>Full research document: company profile, decision-maker contact, pain point, recommended angle, and a personalised opening message — ready to send.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">06</div>
+        <div class="process-content">
+          <span class="process-meta">Ongoing · Outreach team</span>
+          <h3>Multi-Channel Outreach</h3>
+          <p>Cold call first (manufacturing), LinkedIn first (SaaS), email as follow-up. We manage the full sequence, replies, and follow-ups. You don't lift a finger.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">07</div>
+        <div class="process-content">
+          <span class="process-meta">Per meeting · Both founders</span>
+          <h3>Qualified Meeting & Handoff</h3>
+          <p>Meeting booked, pre-meeting brief sent to your closer 24 hours before. We track through to conversion for our percentage fee. The loop is closed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTREACH PRIORITY -->
+<section style="background:var(--cream-dk)">
+  <div class="section-inner reveal">
+    <div class="section-label">Outreach Strategy</div>
+    <h2>Different verticals.<br><em>Different playbooks.</em></h2>
+    <p class="section-sub">We don't use the same approach for manufacturing and SaaS. Each vertical has a tailored outreach priority.</p>
+    <div class="outreach-grid">
+      <div class="outreach-card">
+        <span class="o-rank">#1</span>
+        <h3>Cold Calling</h3>
+        <p>Manufacturing decision-makers pick up the phone. Plant heads and procurement VPs are old-school — a real voice commands attention that email never will. 60% of our manufacturing outreach effort.</p>
+        <span class="o-tag">Manufacturing priority</span>
+      </div>
+      <div class="outreach-card">
+        <span class="o-rank">#2</span>
+        <h3>LinkedIn Outreach</h3>
+        <p>SaaS founders live here. For B2B tech companies we lead with LinkedIn — a personalised connection note referencing a specific trigger, followed by a DM after acceptance. 50% of SaaS outreach effort.</p>
+        <span class="o-tag">SaaS priority</span>
+      </div>
+      <div class="outreach-card">
+        <span class="o-rank">#3</span>
+        <h3>Email Follow-up</h3>
+        <p>Email follows, never leads. Used to confirm after a call, send a dossier excerpt, or re-engage after 30 days of silence. Personalised, trigger-referenced, under 120 words every time.</p>
+        <span class="o-tag">Both verticals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-bg">
+  <div class="section-inner reveal">
+    <div class="section-label" style="color:rgba(255,255,255,0.3)">Why Ertrag Go</div>
+    <h2 style="color:var(--white)">Six reasons we're<br>different from<br><em>every other agency.</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-n">01</span>
+        <h3>We speak your language</h3>
+        <p>Our founders come from industrial B2B sales. We know who signs the PO and why — before we make a single call on your behalf.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">02</span>
+        <h3>Trigger-based only</h3>
+        <p>We never contact a company without a live buying signal. Every outreach is personalised to a specific reason they need your solution right now.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">03</span>
+        <h3>Full dossier, not a contact</h3>
+        <p>Every lead arrives with verified contact, company context, pain point, recommended angle, and a ready-to-send opening message.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">04</span>
+        <h3>Skin in the game</h3>
+        <p>We earn a percentage when deals close. This isn't a vendor relationship. It's a revenue partnership. We only win big when you do.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">05</span>
+        <h3>Transparent outreach</h3>
+        <p>We reach out as Ertrag Go — your BD partner — not impersonating your brand. Leads respect the honesty. Response rates are higher for it.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">06</span>
+        <h3>India + Global reach</h3>
+        <p>From Pune MIDC to German Mittelstand to US contract manufacturers — we run campaigns across geographies your team can't reach manually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bg">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="big-n">₹50K+</span>
+      <div class="stat-label-w">Saved vs in-house SDR</div>
+      <div class="stat-sub-w">Monthly cost comparison</div>
+    </div>
+    <div class="stat-card">
+      <span class="big-n">30</span>
+      <div class="stat-label-w">Days to first meeting</div>
+      <div class="stat-sub-w">From onboarding to pipeline</div>
+    </div>
+    <div class="stat-card">
+      <span class="big-n">75%</span>
+      <div class="stat-label-w">Leads are qualified</div>
+      <div class="stat-sub-w">Decision-maker confirmed</div>
+    </div>
+    <div class="stat-card">
+      <span class="big-n">2×</span>
+      <div class="stat-label-w">Verticals served</div>
+      <div class="stat-sub-w">Manufacturing & SaaS</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testi-bg">
+  <div class="section-inner reveal">
+    <div class="section-label">Client Results</div>
+    <h2>Real outcomes.<br><em>Real manufacturers.</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="quote-mark">"</span>
+        <p class="testi-text">We'd relied on referrals for 12 years. Ertrag Go got us in front of 3 new OEM procurement heads in the first month. One of those is now in active discussion for a ₹1.2Cr annual contract.</p>
+        <div class="testi-author">
+          <div class="author-init">RK</div>
+          <div>
+            <div class="author-name">R. Kumar</div>
+            <div class="author-co">Precision Components, Pune</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="quote-mark">"</span>
+        <p class="testi-text">The dossier they delivered on each lead was unlike anything we'd seen. Full company background, the exact pain point, and a message already written. Our closer said it was the best prepped pipeline he'd ever worked.</p>
+        <div class="testi-author">
+          <div class="author-init">SM</div>
+          <div>
+            <div class="author-name">S. Mehta</div>
+            <div class="author-co">Industrial Equipment, Ahmedabad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner reveal">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions,<br><em>straight answers.</em></h2>
+    <div class="faq-list">
+      <details class="faq">
+        <summary class="faq-q">How is Ertrag Go different from a regular lead gen agency?</summary>
+        <p class="faq-a">Most agencies sell you a list. We sell you a pipeline. Every lead we deliver has a verified decision-maker, a confirmed buying trigger, full company research, and a personalised opening message. We also earn a % when deals close — so we're aligned with your revenue, not just our retainer.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">You reach out as Ertrag Go — not as my company. Does that cause confusion?</summary>
+        <p class="faq-a">Never. We position ourselves transparently as your BD partner — "I'm Nikhil from Ertrag Go, working with [Your Company]." Leads respect that a specialist found them specifically. It's more credible than cold vendor emails, and it protects your brand from bad first impressions.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">How quickly will I see results?</summary>
+        <p class="faq-a">Most clients see their first qualified meeting within 30 days. ICP workshop in Week 1, research and outreach in Weeks 2–3, first meetings by Week 4.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">Which track should I start with?</summary>
+        <p class="faq-a">If you're testing us for the first time, Track B (Pay Per Meeting) is zero-risk. You evaluate our lead quality with no monthly commitment. Most clients convert to Track A within 60 days once they see the results.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">Do you work with both manufacturers and SaaS companies?</summary>
+        <p class="faq-a">Yes. We run separate playbooks for each. Manufacturing clients get cold-call-first outreach. SaaS clients get LinkedIn-first. Different buyers, different methods, same quality standard.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">How does the conversion percentage work?</summary>
+        <p class="faq-a">When a lead we delivered closes into a paid contract, we earn 3–8% (Track A) or 5–12% (Track B) of the first-year deal value, capped at ₹2L per deal. Agreed in writing upfront. You report closures via our shared CRM. We operate on trust and long-term relationships.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>The market doesn't need<br>another BD agency.<br><em>It needs one that performs.</em></h2>
+  <p class="cta-sub">One conversation is all it takes to know if we're the right fit. No commitment. No pitch deck. Just a straight talk.</p>
+  <div class="cta-actions">
+    <a href="#contact" class="btn-amber">Schedule a Free Consultation</a>
+    <a href="#pricing" class="btn-ghost-w">View Pricing</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Contact Us</div>
+      <h2>Let's talk about<br><em>your pipeline.</em></h2>
+      <p>Tell us about your business and what you're trying to achieve. We'll come back with a clear plan within one business day.</p>
+      <a href="mailto:hello@ertraggo.in" class="contact-detail"><span>✉</span> hello@ertraggo.in</a>
+      <a href="tel:+91XXXXXXXXXX" class="contact-detail"><span>☎</span> +91 XXXXX XXXXX</a>
+      <div class="contact-detail"><span>🌐</span> India · USA · Global</div>
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--card);border:1px solid var(--border)">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-bottom:0.5rem">Response time</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--black)">Within 1 business day.</div>
+        <div style="font-size:0.8rem;color:var(--mid);margin-top:0.3rem">No automated replies. A real person reads every message.</div>
+      </div>
+    </div>
+    <div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="Rajesh">
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" placeholder="Kumar">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Company Email *</label>
+        <input type="email" placeholder="rajesh@company.com">
+      </div>
+      <div class="form-group">
+        <label>Company Name *</label>
+        <input type="text" placeholder="Acme Manufacturing Pvt Ltd">
+      </div>
+      <div class="form-group">
+        <label>Your Industry *</label>
+        <select>
+          <option value="">Select your industry</option>
+          <option>CNC Machining</option>
+          <option>Precision Engineering</option>
+          <option>Contract Manufacturing</option>
+          <option>Metal Fabrication</option>
+          <option>Forging or Casting</option>
+          <option>Industrial Equipment Supply</option>
+          <option>B2B SaaS</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Which track interests you?</label>
+        <select>
+          <option value="">Select a track</option>
+          <option>Track A — Monthly Subscription</option>
+          <option>Track B — Pay Per Meeting</option>
+          <option>Not sure — advise me</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What's your biggest sales challenge right now?</label>
+        <textarea placeholder="What markets are you trying to enter? Who is your ideal customer? What's not working today?"></textarea>
+      </div>
+      <button class="form-submit">Submit — We'll Respond Within 24 Hours</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo-mark" href="#" style="color:var(--white)">Ertrag<span>Go</span></a>
+      <p>Business development partner for mechanical manufacturers and B2B SaaS companies. We find your next best customers — across India and globally.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Sales Development</a></li>
+        <li><a href="#services">Business Development</a></li>
+        <li><a href="#pricing">Track A — Subscription</a></li>
+        <li><a href="#pricing">Track B — Pay Per Meeting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Verticals</h4>
+      <ul>
+        <li><a href="#verticals">CNC & Precision</a></li>
+        <li><a href="#verticals">Contract Manufacturing</a></li>
+        <li><a href="#verticals">Metal Fabrication</a></li>
+        <li><a href="#verticals">B2B SaaS</a></li>
+        <li><a href="#verticals">Industrial Equipment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>©️ 2025 Ertrag Go. All rights reserved. · hello@ertraggo.in</p>
+    <span class="footer-tagline">Yield More. Go Further.</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  })
+},{threshold:0.08})
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+
+// Smooth nav highlight
+const sections = document.querySelectorAll('section[id]')
+const navLinks = document.querySelectorAll('.nav-links a')
+window.addEventListener('scroll', () => {
+  let current = ''
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id')
+  })
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--black)' : ''
+  })
+})
+</script>
+</body>
+</html>
