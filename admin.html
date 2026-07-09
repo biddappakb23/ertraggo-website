@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ErtragGo — Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZEDW51N4K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FZEDW51N4K');
+  </script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --primary:#0F2A4A;
+      --secondary:#0D9488;
+      --accent:#5EEAD4;
+      --white:#ffffff;
+      --cream:#f8fafc;
+      --cream-dk:#e2e8f0;
+      --muted:#64748b;
+      --dark:#0b1725;
+      --border:rgba(255,255,255,.28);
+      --shadow:0 35px 90px rgba(15,42,74,.16);
+      --transition:all .3s ease;
+    }
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:linear-gradient(180deg,#eff6ff 0%,#ffffff 100%);
+      color:var(--dark);
+      overflow-x:hidden;
+      min-height:100vh;
+      position:relative;
+    }
+    .page-bg{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      overflow:hidden;
+    }
+    .bg-gradient{
+      position:absolute;
+      width:420px;
+      height:420px;
+      filter:blur(120px);
+      opacity:.75;
+      z-index:0;
+    }
+    .bg-one{
+      top:-120px;
+      left:-100px;
+      background:radial-gradient(circle at 20% 20%, rgba(13,148,136,.38), transparent 55%);
+    }
+    .bg-two{
+      bottom:-140px;
+      right:-100px;
+      background:radial-gradient(circle at 80% 80%, rgba(59,130,246,.32), transparent 58%);
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.14), transparent 0 22%),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,.08), transparent 0 18%);
+      pointer-events:none;
+    }
+    .cursor-glow{
+      position:fixed;
+      left:50%;
+      top:50%;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      pointer-events:none;
+      background:radial-gradient(circle, rgba(13,148,136,.16), transparent 60%);
+      transform:translate(-50%,-50%);
+      mix-blend-mode:screen;
+      opacity:.9;
+      z-index:-1;
+    }
+    #login-page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem 1rem;
+      background:transparent;
+    }
+    .login-box{
+      width:100%;
+      max-width:440px;
+      padding:3rem;
+      border-radius:32px;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(24px);
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow:0 45px 110px rgba(15,42,74,.16);
+      position:relative;
+      z-index:1;
+    }
+    .login-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      font-weight:700;
+      color:var(--dark);
+      margin-bottom:.4rem;
+    }
+    .login-logo span{color:var(--secondary)}
+    .login-subtitle{
+      font-family:'DM Mono',monospace;
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:2rem;
+    }
+    .login-group{margin-bottom:1.2rem}
+    .login-group label{
+      display:block;
+      font-size:.75rem;
+      font-weight:700;
+      color:var(--dark);
+      margin-bottom:.45rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .login-group input{
+      width:100%;
+      padding:.95rem 1rem;
+      border-radius:18px;
+      border:1px solid rgba(15,42,74,.12);
+      background:rgba(255,255,255,.95);
+      font-family:'DM Sans',sans-serif;
+      font-size:.95rem;
+      color:var(--dark);
+      outline:none;
+      transition:var(--transition);
+    }
+    .login-group input:focus{
+      border-color:rgba(13,148,136,.6);
+      box-shadow:0 0 0 4px rgba(13,148,136,.08);
+    }
+    .login-btn{
+      width:100%;
+      padding:1rem;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--secondary),var(--accent));
+      color:var(--white);
+      font-size:.95rem;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:transform .2s ease,box-shadow .2s ease;
+      box-shadow:0 20px 40px rgba(13,148,136,.18);
+      margin-top:1rem;
+    }
+    .login-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 26px 50px rgba(13,148,136,.22);
+    }
+    .login-error{
+      color:#c0392b;
+      font-size:.9rem;
+      margin-top:.9rem;
+      display:none;
+    }
+    #dashboard-page{
+      background:transparent;
+      min-height:100vh;
+      padding-bottom:3rem;
+    }
+    .dash-nav{
+      background:rgba(255,255,255,.92);
+      padding:1rem 2rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:24px;
+      margin:0 auto;
+      width:min(1200px,94%);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.8);
+      box-shadow:0 24px 72px rgba(15,42,74,.12);
+      backdrop-filter:blur(18px);
+      z-index:10;
+    }
+    .dash-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.6rem;
+      font-weight:700;
+      color:var(--dark);
+    }
+    .dash-logo span{color:var(--secondary)}
+    .dash-logo-sub{
+      font-family:'DM Mono',monospace;
+      font-size:.68rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(15,42,74,.46);
+      margin-left:.65rem;
+    }
+    .dash-nav-right{display:flex;align-items:center;gap:1.4rem}
+    .dash-admin-label{font-size:.82rem;color:rgba(15,42,74,.64)}
+    .logout-btn{
+      background:rgba(13,148,136,.12);
+      border:1px solid rgba(13,148,136,.35);
+      color:var(--secondary);
+      padding:.55rem 1rem;
+      font-size:.85rem;
+      font-weight:700;
+      border-radius:16px;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+    .logout-btn:hover{
+      background:rgba(13,148,136,.18);
+      transform:translateY(-1px);
+    }
+    .dash-content{
+      padding:2.5rem 1rem 0;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;
+      font-weight:700;
+      color:var(--dark);
+      margin-bottom:1.2rem;
+      display:flex;
+      align-items:center;
+      gap:.85rem;
+    }
+    .section-title::before{
+      content:'';
+      width:1.8rem;
+      height:2px;
+      background:linear-gradient(135deg,var(--secondary),var(--accent));
+      display:inline-block;
+    }
+    .stats-grid,.btn-stats-grid,.charts-grid{display:grid;gap:1.25rem;margin-bottom:1.25rem;}
+    .stats-grid{grid-template-columns:repeat(4,1fr);}
+    .btn-stats-grid,.charts-grid{grid-template-columns:repeat(2,1fr);}
+    .stat-card,.btn-stat-card,.chart-card,.table-wrap{
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:28px;
+      box-shadow:0 35px 90px rgba(15,42,74,.1);
+      backdrop-filter:blur(16px);
+    }
+    .stat-card{padding:1.6rem;}
+    .stat-card-label{
+      font-family:'DM Mono',monospace;
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.9rem;
+    }
+    .stat-card-number{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.8rem;
+      font-weight:700;
+      color:var(--secondary);
+      line-height:1;
+      margin-bottom:.35rem;
+    }
+    .stat-card-sub{font-size:.88rem;color:var(--muted);}
+    .btn-stat-card{padding:1.5rem;}
+    .btn-stat-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.05rem;
+      font-weight:700;
+      color:var(--dark);
+      margin-bottom:1rem;
+    }
+    .btn-stat-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.75rem 0;
+      border-bottom:1px solid rgba(15,42,74,.08);
+      font-size:.9rem;
+      color:var(--dark);
+    }
+    .btn-stat-row:last-child{border-bottom:none;}
+    .btn-stat-row span:first-child{color:var(--muted);}
+    .btn-stat-row span:last-child{font-weight:700;color:var(--dark);}
+    .conversion-rate{color:#2d7d46 !important;}
+    .chart-card{padding:1.4rem 1.6rem;}
+    .chart-title{
+      font-family:'DM Mono',monospace;
+      font-size:.72rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+    .table-wrap{overflow-x:auto;padding:1rem;}
+    table{width:100%;border-collapse:separate;border-spacing:0;min-width:860px;}
+    thead{background:rgba(15,42,74,.96);}
+    thead th{
+      font-family:'DM Mono',monospace;
+      font-size:.68rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.82);
+      padding:1rem 1.2rem;
+      text-align:left;
+      white-space:nowrap;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    tbody tr{border-bottom:1px solid rgba(15,42,74,.08);}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:hover{background:rgba(13,148,136,.06);}
+    tbody td{
+      padding:1rem 1.2rem;
+      font-size:.9rem;
+      color:var(--dark);
+      vertical-align:top;
+    }
+    .td-name{font-weight:700;color:var(--dark);}
+    .td-email{color:var(--muted);font-size:.82rem;}
+    .td-date{
+      font-family:'DM Mono',monospace;
+      font-size:.78rem;
+      color:var(--muted);
+    }
+    .badge{
+      display:inline-block;
+      padding:.28rem .7rem;
+      font-size:.7rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      border:1px solid;
+      border-radius:12px;
+    }
+    .badge-new{color:#0F2A4A;border-color:#0D9488;background:rgba(13,148,136,.12);}
+    .badge-contacted{color:#0D9488;border-color:#0D9488;background:rgba(13,148,136,.12);}
+    .badge-converted{color:#0D7D46;border-color:#0D7D46;background:rgba(45,125,70,.12);}
+    .status-select{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(15,42,74,.12);
+      background:rgba(255,255,255,.95);
+      color:var(--dark);
+      padding:.5rem .65rem;
+      font-family:'DM Sans',sans-serif;
+      font-size:.85rem;
+      outline:none;
+      transition:var(--transition);
+    }
+    .status-select:focus{border-color:rgba(13,148,136,.45);}
+    .empty-state{
+      text-align:center;
+      padding:3rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .loading{
+      text-align:center;
+      padding:2rem;
+      font-family:'DM Mono',monospace;
+      font-size:.78rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    @media(max-width:1100px){
+      .stats-grid,.btn-stats-grid,.charts-grid{grid-template-columns:1fr;}
+      .dash-content{padding:1rem;}
+      .dash-nav{flex-wrap:wrap;gap:1rem;}
+      .dash-nav-right{width:100%;justify-content:flex-start;}
+      .dash-logo-sub{display:none;}
+    }
+    @media(max-width:768px){
+      .login-box{padding:2.2rem;}
+      .dash-nav{padding:1rem 1rem;}
+      .dash-content{padding:1rem;}
+      .stats-grid,.btn-stats-grid,.charts-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-bg">
+    <div class="bg-gradient bg-one"></div>
+    <div class="bg-gradient bg-two"></div>
+    <div class="bg-grid"></div>
+  </div>
+  <div class="cursor-glow"></div>
+
+<!-- LOGIN PAGE -->
+<div id="login-page">
+  <div class="login-box">
+    <div class="login-logo">Ertrag<span>Go</span></div>
+    <div class="login-subtitle">Admin Dashboard · Restricted Access</div>
+    <div class="login-group">
+      <label>Email Address</label>
+      <input type="email" id="login-email" placeholder="admin@ertraggo.com">
+    </div>
+    <div class="login-group">
+      <label>Password</label>
+      <input type="password" id="login-password" placeholder="Enter your password">
+    </div>
+    <button class="login-btn" id="login-btn">Login to Dashboard</button>
+    <div class="login-error" id="login-error">⚠ Incorrect email or password.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div id="dashboard-page" style="display:none">
+
+  <!-- NAV -->
+  <nav class="dash-nav">
+    <div>
+      <span class="dash-logo">Ertrag<span>Go</span></span>
+      <span class="dash-logo-sub">Admin Dashboard</span>
+    </div>
+    <div class="dash-nav-right">
+      <span class="dash-admin-label" id="admin-email-label"></span>
+      <button class="logout-btn" id="logout-btn">Sign Out</button>
+    </div>
+  </nav>
+
+  <div class="dash-content">
+
+    <!-- SECTION 1 — OVERVIEW -->
+    <div class="section-title">Overview</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-label">Total Submissions</div>
+        <div class="stat-card-number" id="stat-total">—</div>
+        <div class="stat-card-sub">All time form submissions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">New Leads</div>
+        <div class="stat-card-number" id="stat-new">—</div>
+        <div class="stat-card-sub">Not yet contacted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">This Month</div>
+        <div class="stat-card-number" id="stat-month">—</div>
+        <div class="stat-card-sub">Submissions this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Converted</div>
+        <div class="stat-card-number" id="stat-converted">—</div>
+        <div class="stat-card-sub">Closed into clients</div>
+      </div>
+    </div>
+
+
+    <!-- SECTION 3 — SUBMISSION CHARTS -->
+    <div class="section-title">Submission Analytics</div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Monthly Submissions</div>
+        <canvas id="chart-monthly"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Industry Breakdown</div>
+        <canvas id="chart-industry"></canvas>
+      </div>
+    </div>
+
+    <!-- SECTION 4 — CONTACT FORM SUBMISSIONS -->
+    <div class="section-title">Contact Form Submissions</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Industry</th>
+            <th>Email</th>
+            <th>Challenge</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-table">
+          <tr>
+            <td colspan="7">
+              <div class="loading">Loading submissions...</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, getDocs, doc, updateDoc, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // ── REPLACE ALL VALUES BELOW WITH YOUR ACTUAL CREDENTIALS ──
+  const firebaseConfig = {
+    apiKey: "AIzaSyBayznnqwP9TrjhQEpM91D4qinq35ue3CA",
+    authDomain: "ertraggo.firebaseapp.com",
+    projectId: "ertraggo",
+    storageBucket: "ertraggo.firebasestorage.app",
+    messagingSenderId: "16886666231",
+    appId: "1:16886666231:web:8815cc847b66f9ee1194f2"
+  };
+
+
+  // ── INIT ──
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // ── DOM ──
+  const loginPage = document.getElementById('login-page');
+  const dashboardPage = document.getElementById('dashboard-page');
+  const loginBtn = document.getElementById('login-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const loginEmail = document.getElementById('login-email');
+  const loginPassword = document.getElementById('login-password');
+  const loginError = document.getElementById('login-error');
+  const adminEmailLabel = document.getElementById('admin-email-label');
+
+  // ── LOGIN ──
+  loginBtn.addEventListener('click', async () => {
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value.trim();
+    if (!email || !password) {
+      loginError.style.display = 'block';
+      loginError.textContent = '⚠ Please enter email and password.';
+      return;
+    }
+    loginBtn.textContent = 'Logging in...';
+    loginBtn.disabled = true;
+    loginError.style.display = 'none';
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.error('Login error:', error);
+      loginError.style.display = 'block';
+      loginError.textContent = '⚠ Incorrect email or password. Try again.';
+      loginBtn.textContent = 'Login to Dashboard';
+      loginBtn.disabled = false;
+    }
+  });
+
+  // ── LOGOUT ──
+  logoutBtn.addEventListener('click', async () => {
+    await signOut(auth);
+  });
+
+  // ── AUTH STATE ──
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      loginPage.style.display = 'none';
+      dashboardPage.style.display = 'block';
+      adminEmailLabel.textContent = user.email;
+      loadDashboard();
+    } else {
+      loginPage.style.display = 'flex';
+      dashboardPage.style.display = 'none';
+      loginBtn.textContent = 'Login to Dashboard';
+      loginBtn.disabled = false;
+    }
+  });
+
+  // ── LOAD ALL ──
+  async function loadDashboard() {
+    await loadSubmissions();
+  }
+
+  // ── SUBMISSIONS ──
+  async function loadSubmissions() {
+    try {
+      const q = query(
+        collection(db, 'contact_submissions'),
+        orderBy('submittedAt', 'desc')
+      );
+      const snapshot = await getDocs(q);
+      const submissions = [];
+      snapshot.forEach(d => submissions.push({ id: d.id, ...d.data() }));
+      updateStats(submissions);
+      updateSubmissionCharts(submissions);
+      updateTable(submissions);
+    } catch (error) {
+      console.error('Submissions error:', error);
+    }
+  }
+
+  // ── STATS ──
+  function updateStats(submissions) {
+    const total = submissions.length;
+    const newLeads = submissions.filter(s => s.status === 'New' || !s.status).length;
+    const converted = submissions.filter(s => s.status === 'Converted').length;
+    const now = new Date();
+    const thisMonth = submissions.filter(s => {
+      if (!s.submittedAt) return false;
+      const d = s.submittedAt.toDate();
+      return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+    }).length;
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-new').textContent = newLeads;
+    document.getElementById('stat-month').textContent = thisMonth;
+    document.getElementById('stat-converted').textContent = converted;
+  }
+
+  // ── TABLE ──
+  function updateTable(submissions) {
+    const tbody = document.getElementById('submissions-table');
+    if (submissions.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">No submissions yet.</div></td></tr>`;
+      return;
+    }
+    tbody.innerHTML = submissions.map(s => {
+      const date = s.submittedAt
+        ? s.submittedAt.toDate().toLocaleDateString('en-IN', {
+            day: '2-digit', month: 'short', year: 'numeric'
+          })
+        : '—';
+      const status = s.status || 'New';
+      return `
+        <tr>
+          <td>
+            <div class="td-name">${s.firstName || ''} ${s.lastName || ''}</div>
+            <div class="td-email">${s.email || ''}</div>
+          </td>
+          <td>${s.company || '—'}</td>
+          <td>${s.industry || '—'}</td>
+          <td>${s.email || '—'}</td>
+          <td style="max-width:180px;font-size:0.8rem;color:var(--mid)">${s.challenge || '—'}</td>
+          <td class="td-date">${date}</td>
+          <td>
+            <select class="status-select" onchange="window.updateStatus('${s.id}', this.value)">
+              <option ${status === 'New' ? 'selected' : ''}>New</option>
+              <option ${status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option ${status === 'Converted' ? 'selected' : ''}>Converted</option>
+            </select>
+          </td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ── UPDATE STATUS ──
+  window.updateStatus = async (id, newStatus) => {
+    try {
+      await updateDoc(doc(db, 'contact_submissions', id), { status: newStatus });
+      await loadSubmissions();
+    } catch (error) {
+      console.error('Status update error:', error);
+    }
+  };
+
+
+
+  // ── SUBMISSION CHARTS ──
+  function updateSubmissionCharts(submissions) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const monthlyCounts = new Array(12).fill(0);
+    submissions.forEach(s => {
+      if (s.submittedAt) monthlyCounts[s.submittedAt.toDate().getMonth()]++;
+    });
+    new Chart(document.getElementById('chart-monthly'), {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Submissions',
+          data: monthlyCounts,
+          borderColor: '#0D9488',
+          backgroundColor: 'rgba(13,148,136,0.1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+      }
+    });
+    const industryCounts = {};
+    submissions.forEach(s => {
+      const ind = s.industry || 'Unknown';
+      industryCounts[ind] = (industryCounts[ind] || 0) + 1;
+    });
+    new Chart(document.getElementById('chart-industry'), {
+      type: 'doughnut',
+      data: {
+        labels: Object.keys(industryCounts),
+        datasets: [{
+          data: Object.values(industryCounts),
+          backgroundColor: ['#0D9488','#0F2A4A','#5B7083','#5EEAD4','#2D7D46','#2471A3']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+      }
+    });
+  }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions — Ertrag Go</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9GVSZBF7D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P9GVSZBF7D');
+</script>
+</head>
+<body>
+
+    <div class="page-bg">
+        <div class="bg-gradient bg-one"></div>
+        <div class="bg-gradient bg-two"></div>
+        <div class="bg-grid"></div>
+    </div>
+
+    <div id="progressBar"></div>
+    <div class="cursor-glow"></div>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span>Ertrag</span> Go
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown">
+                    <a class="dropdown-trigger">
+                        About
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="about-company.html">About Company</a>
+                        <a href="our-story.html">Our Story</a>
+                        <a href="team.html">Team</a>
+                    </div>
+                </li>
+                <li><a href="solutions.html" class="active">Solutions</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="https://calendar.app.google/tHdzG3xawfPp5ti7A" class="nav-btn">Schedule Call</a>
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">What We Do • Solutions</span>
+                <h1>
+                    Business development,
+                    <span>built like an engine.</span>
+                </h1>
+                <p>
+                    Two focused services, two verticals, one seven-step delivery process. No shortcuts, no scraped lists — every lead is researched, verified, and trigger-based.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn-primary">Book a Strategy Call</a>
+                    <a href="#services" class="btn-secondary">Explore Services</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="card-header">
+                    <span class="live-dot"></span>
+                    Delivery Model
+                </div>
+                <div class="metric">
+                    <h2>2</h2>
+                    <p>Focused Services</p>
+                </div>
+                <div class="metric">
+                    <h2>7</h2>
+                    <p>Steps in the Process</p>
+                </div>
+                <div class="metric">
+                    <h2>2</h2>
+                    <p>Core Verticals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+  <div class="section-inner reveal">
+    <div class="section-label">What We Do</div>
+    <h2>Two focused services.<br><em>One outcome — your revenue.</em></h2>
+    <p class="section-sub">We don't dabble. We specialise in two things and do them exceptionally well.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="svc-num">01 — Sales Development</span>
+        <h3>Qualified meetings with your ideal buyers</h3>
+        <p>We handle all outbound prospecting — identifying, researching, and engaging decision-makers at companies that match your ICP. Your team only speaks with people who are ready to talk business.</p>
+        <ul class="svc-bullets">
+          <li>ICP definition & buyer persona mapping</li>
+          <li>Intent signal research & trigger identification</li>
+          <li>Multi-channel outreach: cold call, email, LinkedIn</li>
+          <li>Full lead dossier with personalised first-touch</li>
+          <li>Meeting booked and handed off to your closer</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="svc-num">02 — Business Development</span>
+        <h3>Full-cycle BD from first contact to PO</h3>
+        <p>For companies who want us deeper in the sales cycle. We don't just book meetings — we manage the relationship from first outreach through qualification, follow-up, and purchase order stage.</p>
+        <ul class="svc-bullets">
+          <li>Full account research & market mapping</li>
+          <li>Decision-maker relationship building</li>
+          <li>Qualification, objection handling & follow-up</li>
+          <li>Pipeline reporting & CRM management</li>
+          <li>Conversion % aligned — we win when you win</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section class="industries" id="verticals">
+  <div class="section-inner reveal">
+    <div class="section-label">Who We Serve</div>
+    <h2>Built for two verticals.<br><em>Expert in both.</em></h2>
+    <p class="section-sub">We go deep, not wide. Two industries. Two playbooks. Zero compromise on quality.</p>
+    <div class="verticals-grid">
+      <div class="vertical-card">
+        <!--<span class="v-tag"></span>-->
+        <h3>Mechanical Manufacturing</h3>
+        <p>Our founders come from industrial B2B sales. We know the difference between a plant manager and a procurement head — and who actually signs the PO. We target companies showing live buying signals: new capex, plant expansion, equipment need, or supplier switch.</p>
+        <div class="v-industries">
+          <span class="v-pill">CNC Machining</span>
+          <span class="v-pill">Precision Engineering</span>
+          <span class="v-pill">Contract Manufacturing</span>
+          <span class="v-pill">Metal Fabrication</span>
+          <span class="v-pill">Forging & Casting</span>
+          <span class="v-pill">Industrial Equipment</span>
+        </div>
+      </div>
+      <div class="vertical-card">
+        <!--<span class="v-tag"></span>-->
+        <h3>B2B SaaS</h3>
+        <p>SaaS founders live on LinkedIn. We know how to reach them. We identify growing SaaS companies that need a stronger outbound pipeline and connect them with qualified enterprise buyers — at the exact moment they're ready to spend.</p>
+        <div class="v-industries">
+          <span class="v-pill">Industrial SaaS</span>
+          <span class="v-pill">Enterprise Software</span>
+          <span class="v-pill">ERP / MES / QMS</span>
+          <span class="v-pill">B2B Platforms</span>
+          <span class="v-pill">SaaS for Manufacturing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-inner reveal">
+    <div class="section-label">How We Work</div>
+    <h2>A 7-step delivery engine.<br><em>No shortcuts.</em></h2>
+    <p class="section-sub">Every lead goes through a rigorous research and validation process before it reaches your team.</p>
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-n">01</div>
+        <div class="process-content">
+          <h3>ICP Workshop</h3>
+          <p>Deep-dive session to define your ideal customer profile, trigger events, deal size, and target geographies. No research begins until this is signed off.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">02</div>
+        <div class="process-content">
+          <h3>Intent Signal Scan</h3>
+          <p>We use Apollo, LinkedIn Sales Navigator, and Clay to find companies showing real buying signals right now — capex announcements, hiring surges, plant expansions.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">03</div>
+        <div class="process-content">
+          <h3>Decision-Maker Mapping</h3>
+          <p>Identify the real buyer — not just a contact. Verify email, map the org chart, confirm budget authority. Two-source minimum on every contact.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">04</div>
+        <div class="process-content">
+          <h3>Trigger Validation</h3>
+          <p>Confirm the trigger is live and recent — within 90 days. Every lead must have a confirmed reason to need your solution today, not someday.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">05</div>
+        <div class="process-content">
+          <h3>Dossier Build</h3>
+          <p>Full research document: company profile, decision-maker contact, pain point, recommended angle, and a personalised opening message — ready to send.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">06</div>
+        <div class="process-content">
+          <h3>Multi-Channel Outreach</h3>
+          <p>Cold call first (manufacturing), LinkedIn first (SaaS), email as follow-up. We manage the full sequence, replies, and follow-ups. You don't lift a finger.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-n">07</div>
+        <div class="process-content">
+          <h3>Qualified Meeting & Handoff</h3>
+          <p>Meeting booked, pre-meeting brief sent to your closer 24 hours before. We track through to conversion for our percentage fee. The loop is closed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="services" id="pricing">
+  <div class="section-inner reveal">
+    <div class="section-label">Pricing</div>
+    <h2>Two tracks.<br><em>Pick your risk level.</em></h2>
+    <p class="section-sub">Both tracks are aligned to your results — we earn a percentage only when a lead we delivered closes into a paid contract.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <span class="pricing-label">Track A</span>
+        <h3>Retainer + Success Fee</h3>
+        <p class="pricing-desc">For companies ready to commit to a consistent monthly outbound engine across manufacturing or SaaS.</p>
+        <div class="pricing-amt">3–8%</div>
+        <div class="pricing-unit">of first-year deal value on close, capped at ₹2L per deal</div>
+        <div class="pricing-hr"></div>
+        <ul class="pricing-features">
+          <li>Full 7-step delivery process</li>
+          <li>Dedicated ICP workshop & playbook</li>
+          <li>Priority multi-channel outreach</li>
+          <li>Monthly pipeline reporting</li>
+        </ul>
+      </div>
+      <div class="pricing-card dark">
+        <span class="pricing-label">Track B</span>
+        <h3>Pay Per Meeting</h3>
+        <p class="pricing-desc">Zero monthly commitment. Evaluate our lead quality before committing to a retainer.</p>
+        <div class="pricing-amt">5–12%</div>
+        <div class="pricing-unit">of first-year deal value on close, capped at ₹2L per deal</div>
+        <div class="pricing-hr"></div>
+        <ul class="pricing-features">
+          <li>Pay only for qualified meetings booked</li>
+          <li>No monthly retainer</li>
+          <li>Full lead dossier per meeting</li>
+          <li>Convert to Track A anytime</li>
+        </ul>
+        <div class="conversion-pill">Most clients convert to Track A within 60 days</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-us" id="why">
+  <div class="section-inner reveal">
+    <div class="section-label" style="color:rgba(255,255,255,0.3)">Why Ertrag Go</div>
+    <h2 style="color:var(--white)">Six reasons we're<br>different from<br><em>every other agency.</em></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-n">01</span>
+        <h3>We speak your language</h3>
+        <p>Our founders come from industrial B2B sales. We know who signs the PO and why — before we make a single call on your behalf.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">02</span>
+        <h3>Trigger-based only</h3>
+        <p>We never contact a company without a live buying signal. Every outreach is personalised to a specific reason they need your solution right now.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">03</span>
+        <h3>Full dossier, not a contact</h3>
+        <p>Every lead arrives with verified contact, company context, pain point, recommended angle, and a ready-to-send opening message.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">04</span>
+        <h3>Skin in the game</h3>
+        <p>We earn a percentage when deals close. This isn't a vendor relationship. It's a revenue partnership. We only win big when you do.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">05</span>
+        <h3>Transparent outreach</h3>
+        <p>We reach out as Ertrag Go — your BD partner — not impersonating your brand. Leads respect the honesty. Response rates are higher for it.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-n">06</span>
+        <h3>India + Global reach</h3>
+        <p>From Pune MIDC to German Mittelstand to US contract manufacturers — we run campaigns across geographies your team can't reach manually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="services" id="faq">
+  <div class="section-inner reveal">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions,<br><em>straight answers.</em></h2>
+    <div class="faq-list">
+      <details class="faq">
+        <summary class="faq-q">How is Ertrag Go different from a regular lead gen agency?</summary>
+        <p class="faq-a">Most agencies sell you a list. We sell you a pipeline. Every lead we deliver has a verified decision-maker, a confirmed buying trigger, full company research, and a personalised opening message. We also earn a % when deals close — so we're aligned with your revenue, not just our retainer.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">You reach out as Ertrag Go — not as my company. Does that cause confusion?</summary>
+        <p class="faq-a">Never. We position ourselves transparently as your BD partner — "I'm [Name] from Ertrag Go, working with [Your Company]." Leads respect that a specialist found them specifically. It's more credible than cold vendor emails, and it protects your brand from bad first impressions.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">How quickly will I see results?</summary>
+        <p class="faq-a">Most clients see their first qualified meeting within 30 days. ICP workshop in Week 1, research and outreach in Weeks 2–3, first meetings by Week 4.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">Which track should I start with?</summary>
+        <p class="faq-a">If you're testing us for the first time, Track B (Pay Per Meeting) is zero-risk. You evaluate our lead quality with no monthly commitment. Most clients convert to Track A within 60 days once they see the results.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">Do you work with both manufacturers and SaaS companies?</summary>
+        <p class="faq-a">Yes. We run separate playbooks for each. Manufacturing clients get cold-call-first outreach. SaaS clients get LinkedIn-first. Different buyers, different methods, same quality standard.</p>
+      </details>
+      <details class="faq">
+        <summary class="faq-q">How does the conversion percentage work?</summary>
+        <p class="faq-a">When a lead we delivered closes into a paid contract, we earn 3–8% (Track A) or 5–12% (Track B) of the first-year deal value, capped at ₹2L per deal. Agreed in writing upfront. You report closures via our shared CRM. We operate on trust and long-term relationships.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>The market doesn't need<br>another BD agency.<br><em>It needs one that performs.</em></h2>
+  <p class="cta-sub">One conversation is all it takes to know if we're the right fit.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn-amber">Schedule a Free Consultation</a>
+    <a href="#pricing" class="btn-ghost-w">View Pricing</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid footer-grid-5">
+    <div class="footer-brand">
+      <a class="logo-mark" href="index.html" style="color:var(--white)">Ertrag<span>Go</span></a>
+      <p>Business development partner for mechanical manufacturers and B2B SaaS companies. We find your next best customers — across India and globally.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Twitter">X</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about-company.html">About Company</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="solutions.html#services">Sales Development</a></li>
+        <li><a href="solutions.html#services">Business Development</a></li>
+        <li><a href="solutions.html#verticals">Manufacturing</a></li>
+        <li><a href="solutions.html#verticals">B2B SaaS</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solutions.html#process">Our Process</a></li>
+        <li><a href="solutions.html#faq">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="mailto:hello@ertraggo.in">hello@ertraggo.in</a></li>
+        <li><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></li>
+        <li>India · USA · Global</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ertrag Go. All rights reserved. · hello@ertraggo.in</p>
+    <span class="footer-tagline">Yield More. Go Further.</span>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
